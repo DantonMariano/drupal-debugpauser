@@ -1,0 +1,10 @@
+toolbar.debug-pause:
+  version: 1.x
+  css:
+    theme:
+      css/debug-pause.css: {}
+  js:
+    js/debug-pause.js: { }
+    dependencies:
+      - core/jquery
+      - core/drupal

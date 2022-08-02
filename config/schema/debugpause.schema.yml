@@ -1,0 +1,7 @@
+debugpause.settings:
+  type: config_object
+  label: 'Debug Pause settings'
+  mapping:
+    pausein:
+      type: integer
+      label: 'Amount of time before pausing.'

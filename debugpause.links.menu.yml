@@ -1,0 +1,12 @@
+debugpause.menu_link:
+  title: 'Debug Pause'
+  description: 'Pauses Javascript'
+  parent: system.admin
+  menu_name: system.admin
+  weight: 10
+  route_name: '<nolink>'
+debugpause.settings:
+  title: 'Debug Pause Settings'
+  description: 'Configure the Debug Pause module.'
+  route_name: debugpause.settings
+  parent: system.admin_config_development

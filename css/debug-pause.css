@@ -1,0 +1,14 @@
+.toolbar-icon.toolbar-icon-debugpause-menu-link:before {
+  color: #565656;
+  background-image: url("../misc/icons/bebebe/timer.svg");
+}
+
+/* Added more properties in case user doesn't install admin toolbar */
+.toolbar-icon.toolbar-icon-debugpause-menu-link {
+  display:block;
+  padding-left: 2.75em !important;
+  padding: 1em 1.3333em;
+  cursor: pointer;
+  text-decoration: none;
+  color: #565656;
+}

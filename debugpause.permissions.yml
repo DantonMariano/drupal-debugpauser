@@ -1,0 +1,3 @@
+use debug pause:
+  title: 'Use the Debug Pause Module'
+  description: 'Permissions for using the pausing feature on the debug pause module.'

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Add pausein param into the config.
+ *
+ */
+function debugpause_install() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('debugpause.settings');
+  if (empty($config->get('pausein'))) {
+    $config->set('pausein', 5000);
+    $config->save(TRUE);
+  }
+}

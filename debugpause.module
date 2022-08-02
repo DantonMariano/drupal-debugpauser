@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_toolbar_alter
+ */
+function debugpause_toolbar_alter(&$items) {
+  $items['administration']['#attached']['library'][] = 'debugpause/toolbar.debug-pause';
+}
+
+function debugpause_preprocess_menu(&$variables) {
+  // Hide registration link for the authenticated user.
+  $items = $variables['items'];
+  foreach ($items as $key => &$item) {
+    // Hide  link if the user is logged in.
+    if ($item['title'] == 'Debug Pause' && !\Drupal::currentUser()->hasPermission('use debug pause')) {
+      unset($variables['items'][$key]);
+    }
+    else if ($item['title'] == 'Debug Pause' && \Drupal::currentUser()->hasPermission('use debug pause')) {
+      $item['attributes']['pausein'] = \Drupal::config('debugpause.settings')->get('pausein');
+      $item['attributes']['id'] = 'debugpausebutton';
+    }
+  }
+}

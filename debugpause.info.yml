@@ -1,0 +1,6 @@
+name: Debug Pause
+description: 'Provides ability to pause JavaScript without any breakpoints for debugging purposes (Dev Tools need to be open so this module works properly).'
+package: Developer
+type: module
+core_version_requirement: ^8 || ^9
+configure: debugpause.settings
