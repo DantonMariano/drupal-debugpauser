@@ -49,6 +49,7 @@ class debugpauseSettingsForm extends ConfigFormBase {
     $config = $this->config('debugpause.settings');
     $config->set('pausein', $form_state->getValue('pausein'));
     $config->save();
+    \Drupal::service('cache.render')->invalidateAll();
     return parent::submitForm($form, $form_state);
   }
 
