@@ -21,7 +21,7 @@
               $toolbarItem.text('Debug Pause');
               $toolbarItem.prop('title', 'Pauses Javascript');
               isPausing = false;
-            },seconds)
+            },seconds);
             counting = setInterval(()=>{
               secondsInt--;
               $toolbarItem.text(secondsInt);
@@ -37,10 +37,10 @@
             setTimeout(()=>{
               $toolbarItem.text('Debug Pause');
               isPausing = false;
-            },2000)
+            },2000);
           }
         })
       })
     }
   }
-} (jQuery, Drupal))
+} (jQuery, Drupal));

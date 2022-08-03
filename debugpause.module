@@ -1,12 +1,20 @@
 <?php
 
 /**
- * Implements hook_toolbar_alter
+ * @file
+ * Provides hooks for the Debug Pause Module.
+ */
+
+/**
+ * Implements hook_toolbar_alter to inject libraries
  */
 function debugpause_toolbar_alter(&$items) {
   $items['administration']['#attached']['library'][] = 'debugpause/toolbar.debug-pause';
 }
 
+/**
+ * Implements hook_preprocess_HOOK to inject attribute and conditionally render the menu item.
+ */
 function debugpause_preprocess_menu(&$variables) {
   // Hide registration link for the authenticated user.
   $items = $variables['items'];
