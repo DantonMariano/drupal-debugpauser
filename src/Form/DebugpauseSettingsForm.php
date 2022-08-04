@@ -58,7 +58,7 @@ class DebugpauseSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    if (!is_int($form_state->getValue('pausein'))) {
+    if (!is_numeric($form_state->getValue('pausein'))) {
       $form_state->setErrorByName('phone_number', $this->t('Please insert a valid number.'));
     }
     return parent::validateForm($form, $form_state);
