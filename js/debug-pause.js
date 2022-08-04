@@ -3,29 +3,30 @@
     attach: (context, settings) => {
       once('debugpause', 'html', context).forEach( function (element) {
         let $toolbarItem = $('.toolbar-icon.toolbar-icon-debugpause-menu-link');
-        let isPausing = false;
+        let isPausing = FALSE;
         let pausing;
         let counting;
 
-        $('#debugpausebutton').click(()=>{
+        $('#debugpausebutton').click(() => {
           if (!isPausing) {
-            isPausing = true;
+            isPausing = TRUE;
             let seconds = $('#debugpausebutton').attr('pausein');
-            let secondsInt = parseInt(seconds/1000);
+            let secondsInt = parseInt(seconds / 1000);
             $toolbarItem.text(secondsInt);
             $toolbarItem.prop('title', 'Cancels Pause');
-            pausing = setTimeout(()=>{
+            pausing = setTimeout(() => {
               $toolbarItem.text('Paused');
               debugger;
               clearInterval(counting);
               $toolbarItem.text('Debug Pause');
               $toolbarItem.prop('title', 'Pauses Javascript');
-              isPausing = false;
+              isPausing = FALSE;
             },seconds);
-            counting = setInterval(()=>{
+            counting = setInterval(() => {
               secondsInt--;
               $toolbarItem.text(secondsInt);
-              if (secondsInt === 0) {
+              if (secondsInt < 1) {
+                $toolbarItem.text('Pausing...');
                 clearInterval(counting);
               }
             }, 1000);
@@ -34,9 +35,9 @@
             clearInterval(counting);
             $toolbarItem.text('Cancelled');
             $toolbarItem.prop('title', 'Pauses Javascript');
-            setTimeout(()=>{
+            setTimeout(() => {
               $toolbarItem.text('Debug Pause');
-              isPausing = false;
+              isPausing = FALSE;
             },2000);
           }
         })

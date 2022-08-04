@@ -1,8 +1,12 @@
 <?php
 
 /**
+ * @file
+ * Installs default settings for the Debug Pause module.
+ */
+
+/**
  * Add pausein param into the config.
- *
  */
 function debugpause_install() {
   $config_factory = \Drupal::configFactory();

@@ -1,7 +1,7 @@
 debugpause.settings:
   path: '/admin/config/development/debugpause'
   defaults:
-    _form: '\Drupal\debugpause\Form\debugpauseSettingsForm'
+    _form: '\Drupal\debugpause\Form\DebugpauseSettingsForm'
     _title: 'Debug Pause settings'
   requirements:
     _permission: 'use debug pause'

@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Provides Settings Form for the Debug Pause Module.
  */
-class debugpauseSettingsForm extends ConfigFormBase {
+class DebugpauseSettingsForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
@@ -21,22 +21,22 @@ class debugpauseSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-    // Form constructor
+    // Form constructor.
     parent::buildForm($form, $form_state);
-    // Default settings
+    // Default settings.
     $config = $this->config('debugpause.settings');
 
     $form['pausein'] = [
       '#type' => 'number',
       '#title' => $this->t('Amount of time before it pauses'),
       '#default_value' => $config->get('pausein'),
-      '#description' => $this->t('Amount of time in Miliseconds before it pauses.')
+      '#description' => $this->t('Amount of time in Miliseconds before it pauses.'),
     ];
 
     $form['submit_button'] = [
       '#type' => 'submit',
       '#title' => $this->t('Submit'),
-      '#value' => $this->t('Submit')
+      '#value' => $this->t('Submit'),
     ];
 
     return $form;
@@ -58,7 +58,10 @@ class debugpauseSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-
+    if (!is_int($form_state->getValue('pausein'))) {
+      $form_state->setErrorByName('phone_number', $this->t('Please insert a valid number.'));
+    }
+    return parent::validateForm($form, $form_state);
   }
 
   /**
@@ -66,7 +69,7 @@ class debugpauseSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames(): array {
     return [
-      'debugpause.settings'
+      'debugpause.settings',
     ];
   }
 
