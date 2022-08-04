@@ -49,8 +49,6 @@ class DebugpauseSettingsForm extends ConfigFormBase {
     $config = $this->config('debugpause.settings');
     $config->set('pausein', $form_state->getValue('pausein'));
     $config->save();
-    // Clears cache.
-    drupal_flush_all_caches();
     return parent::submitForm($form, $form_state);
   }
 
