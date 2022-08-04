@@ -2,7 +2,7 @@
   background-image: url("../misc/icons/787878/timer.svg");
 }
 
-/* Added more properties in case user doesn't install admin toolbar */
+/* Added more properties in case user doesn't have admin toolbar installed */
 .toolbar-icon.toolbar-icon-debugpause-menu-link {
   display:block;
   padding-left: 2.75em !important;

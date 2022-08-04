@@ -3,4 +3,6 @@ description: 'Provides ability to pause JavaScript without any breakpoints for d
 package: Developer
 type: module
 core_version_requirement: ^8 || ^9
+dependencies: 
+  - admin_toolbar:admin_toolbar
 configure: debugpause.settings

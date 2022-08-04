@@ -16,14 +16,14 @@ function debugpause_toolbar_alter(&$items) {
  * Implements hook_preprocess_HOOK to inject attribute and conditionally render the menu item.
  */
 function debugpause_preprocess_menu(&$variables) {
-  // Hide registration link for the authenticated user.
   $items = $variables['items'];
   foreach ($items as $key => &$item) {
     // Hide  link if the user is logged in.
     if ($item['title'] == 'Debug Pause' && !\Drupal::currentUser()->hasPermission('use debug pause')) {
       unset($variables['items'][$key]);
     }
-    else if ($item['title'] == 'Debug Pause' && \Drupal::currentUser()->hasPermission('use debug pause')) {
+    elseif ($item['title'] == 'Debug Pause' && \Drupal::currentUser()->hasPermission('use debug pause')) {
+      // Attributes config value to the menu element and attributes ID.
       $item['attributes']['pausein'] = \Drupal::config('debugpause.settings')->get('pausein');
       $item['attributes']['id'] = 'debugpausebutton';
     }
